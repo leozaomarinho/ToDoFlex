@@ -44,6 +44,16 @@ Isola as dependências do projeto.
 Facilita o controle de versões de bibliotecas.
 
 
+✅ (feito) Criar database.py com engine e Base
 
+✅ (feito) Criar o modelo Task (models/task_model.py)
+
+🔲 Criar schemas (schemas/task_schema.py) — Pydantic
+
+🔲 Criar a lógica de serviços (services/task_service.py) — CRUD
+
+🔲 Criar rotas (routers/task_router.py) — POST, GET, PUT, DELETE
+
+🔲 Atualizar main.py — incluir rotas e inicializar banco
 
 
