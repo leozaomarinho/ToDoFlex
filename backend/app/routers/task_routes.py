@@ -4,8 +4,9 @@ from sqlalchemy.orm import Session
 from typing import List
 
 from app.database import get_db
-from app.schemas import Task, TaskCreate, TaskUpdate
-from app.services import (
+from app.schemas.task_schema import Task, TaskCreate, TaskUpdate
+from app.services.task_service import (
+
 
     create_task,
     get_task,
