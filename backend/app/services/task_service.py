@@ -3,9 +3,15 @@ from sqlalchemy.orm import Session
 from app.models.task_model import Task
 from app.schemas.task_schema import TaskCreate, TaskUpdate
 
+#create_task: Cria uma nova tarefa no banco de dados
+#get_task: Retorna todas as tarefas
+#get_task_by_id: Retorna uma tarefa por ID
+#update_task: Atualiza uma tarefa existente
+#delete_task: Deleta uma tarefa por ID
+
 def create_task(db: Session, task: TaskCreate):
     # Cria uma nova tarefa no banco de dados
-    nova_tarefa = Task(tittle=task.title, description=task.description)
+    nova_tarefa = Task(title=task.title, description=task.description)
     db.add(nova_tarefa)
     db.commit()
     db.refresh(nova_tarefa)
