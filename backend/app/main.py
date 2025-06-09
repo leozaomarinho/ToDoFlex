@@ -1,17 +1,27 @@
+# File: main.py
+# Project: ToDoFlex
 from fastapi import FastAPI
-from app.routers import task_routes
 from app.database import engine, Base
-# Importando o banco de dados e o modelo Base
+from app.routers import task_routes
+from fastapi.middleware.cors import CORSMiddleware
 
-#Criacao das tabelas no banco de dados
+# Criando tabelas no banco de dados
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="ToDoFlex API",
-    description="API para gerenciar tarefas do ToDoFlex",
-    version="1.0.0"
-
+    title = "ToDoFlex API",
+    description = "API para gerenciar tarefas do ToDoFlex",
+    version = "1.0.0",
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todas as origens
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos os métodos HTTP
+    allow_headers=["*"],  # Permite todos os cabeçalhos
+)
+
 # Include routers
 app.include_router(task_routes.router)
 
