@@ -2,7 +2,8 @@
 # Project: ToDoFlex
 from fastapi import FastAPI
 from app.database import engine, Base
-from app.routers import task_routes
+from app.routers import task_routes, user_routes
+# Importando as dependências necessárias
 from fastapi.middleware.cors import CORSMiddleware
 
 # Criando tabelas no banco de dados
@@ -24,6 +25,8 @@ app.add_middleware(
 
 # Include routers
 app.include_router(task_routes.router)
+app.include_router(user_routes.router)
+# Rota raiz
 
 
 @app.get("/")
