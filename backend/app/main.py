@@ -1,4 +1,3 @@
-# File: main.py
 # Project: ToDoFlex
 from fastapi import FastAPI
 from app.database import engine, Base
